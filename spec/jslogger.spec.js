@@ -8,6 +8,11 @@
         });
 
         describe('log', function(){
+
+            beforeEach(function(){
+                jslogger.setLogLevel(2);
+            });
+
             it('should call console.log', function(){
                 console.log = jasmine.createSpy('log');
 
@@ -44,6 +49,11 @@
         });
 
         describe('error', function(){
+
+            beforeEach(function(){
+                jslogger.setLogLevel(2);
+            });
+
             it('should call console.error', function(){
                 console.error = jasmine.createSpy('error');
 
@@ -80,6 +90,11 @@
         });
 
         describe('info', function(){
+
+            beforeEach(function(){
+                jslogger.setLogLevel(2);
+            });
+
             it('should call console.info', function(){
                 console.info = jasmine.createSpy('info');
 
@@ -116,6 +131,11 @@
         });
 
         describe('warn', function(){
+
+            beforeEach(function(){
+                jslogger.setLogLevel(2);
+            });
+
             it('should call console.warn', function(){
                 console.warn = jasmine.createSpy('warn');
 
@@ -153,6 +173,10 @@
 
         describe('trace', function(){
 
+            beforeEach(function(){
+                jslogger.setLogLevel(2);
+            });
+
             it('should call console.trace', function(){
                 console.trace = jasmine.createSpy('trace');
 
@@ -170,7 +194,6 @@
 
                 expect(logger).not.toThrow();
             });
-
         });
 
         describe('setLogLevel', function(){
@@ -180,6 +203,19 @@
                 expect(document.cookie.match(/logLevel/).length).toBe(1);
             });
 
+            it('should not call log if log level is < 2', function(){
+                jslogger.setLogLevel(1);
+                console.log = jasmine.createSpy('log');
+                jslogger.log('test');
+                expect(console.log).not.toHaveBeenCalled();
+            });
+
+            it('should not call warn if log level is < 1', function(){
+                jslogger.setLogLevel(0);
+                console.warn = jasmine.createSpy('warn');
+                jslogger.warn('test');
+                expect(console.warn).not.toHaveBeenCalled();
+            });
         });
 
     });

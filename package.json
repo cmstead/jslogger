@@ -1,6 +1,6 @@
 {
-  "name": "JSTemplate",
-  "description": "Template project to simplify JS environment setup.",
+  "name": "JSLogger",
+  "description": "Logger utility to limit log output in a production environment.",
   "version": "1.0.0",
   "devDependencies": {
     "grunt": "^0.4.5",
