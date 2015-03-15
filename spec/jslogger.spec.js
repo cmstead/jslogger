@@ -8,6 +8,17 @@
         });
 
         describe('log', function(){
+            
+            var log;
+
+            beforeEach(function(){
+                log = console.log;
+            });
+
+            afterEach(function(){
+                console.log = log;
+            });
+
             it('should call console.log', function(){
                 console.log = jasmine.createSpy('log');
 
@@ -44,6 +55,17 @@
         });
 
         describe('error', function(){
+            
+            var error;
+
+            beforeEach(function(){
+                error = console.error;
+            });
+
+            afterEach(function(){
+                console.error = error;
+            });
+
             it('should call console.error', function(){
                 console.error = jasmine.createSpy('error');
 
@@ -80,6 +102,17 @@
         });
 
         describe('info', function(){
+
+            var info;
+
+            beforeEach(function(){
+                info = console.info;
+            });
+
+            afterEach(function(){
+                console.info = info;
+            });
+
             it('should call console.info', function(){
                 console.info = jasmine.createSpy('info');
 
@@ -97,7 +130,7 @@
             });
 
             it('should call console.info with a single argument', function(){
-                console.error = jasmine.createSpy('info');
+                console.info = jasmine.createSpy('info');
 
                 jslogger.info('test1', 'test2', 'test3', 'test4');
 
@@ -116,6 +149,17 @@
         });
 
         describe('warn', function(){
+            
+            var warn;
+
+            beforeEach(function(){
+                warn = console.warn;
+            });
+
+            afterEach(function(){
+                console.warn = warn;
+            });
+            
             it('should call console.warn', function(){
                 console.warn = jasmine.createSpy('warn');
 
@@ -133,7 +177,7 @@
             });
 
             it('should call console.warn with a single argument', function(){
-                console.error = jasmine.createSpy('warn');
+                console.warn = jasmine.createSpy('warn');
 
                 jslogger.warn('test1', 'test2', 'test3', 'test4');
 
@@ -152,6 +196,16 @@
         });
 
         describe('trace', function(){
+
+            var trace;
+
+            beforeEach(function(){
+                trace = console.trace;
+            });
+
+            afterEach(function(){
+                console.trace = trace;
+            });
 
             it('should call console.trace', function(){
                 console.trace = jasmine.createSpy('trace');
@@ -176,8 +230,19 @@
         describe('setLogLevel', function(){
 
             it('should set log level cookie', function(){
+                document.cookie = 'test=test';
                 jslogger.setLogLevel(0);
                 expect(document.cookie.match(/logLevel/).length).toBe(1);
+            });
+
+        });
+
+        describe('getLogLevel', function(){
+            
+            it('should do stuff...', function(){
+                jslogger.setLogLevel(1);
+                jslogger.getLogLevel();
+                expect(true).toBe(false);
             });
 
         });
