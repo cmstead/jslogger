@@ -1,4 +1,4 @@
-var jslogger = (function(console, document){
+var jslogger = (function(){
     'use strict';
 
     var logLevels = {
@@ -15,12 +15,12 @@ var jslogger = (function(console, document){
     }
 
     function getLogLevel(){
-        var logLevel = decodeURIComponent(
+        var storedLevel = decodeURIComponent(
                     document.cookie.replace(
                         new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent('logLevel')
                             .replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
 
-        return (!!logLevel) ? 0 : parseInt(logLevel, 10);
+        return (!!storedLevel) ? logLevel : parseInt(storedLevel, 10);
     }
 
     function setLogLevel(level){
@@ -59,9 +59,10 @@ var jslogger = (function(console, document){
     }
 
     setLogLevel(getLogLevel());
-    
+
     return {
         error: error,
+        getLogLevel: getLogLevel,
         info: info,
         log: log,
         setLogLevel: setLogLevel,
@@ -69,4 +70,4 @@ var jslogger = (function(console, document){
         warn: warn
     };
 
-})(console, document);
+})();
