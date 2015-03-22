@@ -22,10 +22,14 @@ module.exports = function(grunt){
                 }
             }
         },
-        jsdoc : {
+        jsdoc: {
             dist : {
                 src: ['./scripts/src/*.js', './spec/*.js'],
                 dest: 'doc'
+            }
+        },
+        devserver: {
+            server: {
             }
         }
     });
@@ -34,15 +38,16 @@ module.exports = function(grunt){
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-devserver');
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-karma');
 
     /* Register composite grunt tasks */
 
     grunt.registerTask('test', ['jshint', 'karma']);
-    grunt.registerTask('document', ['jsdoc'])
+    grunt.registerTask('document', ['jsdoc']);
 
-    grunt.registerTask('buildjs', ['uglify'])
+    grunt.registerTask('buildjs', ['uglify']);
     grunt.registerTask('build', ['test', 'buildjs', 'document']);
 
     //Special build to handle work in progress experiments.

@@ -11,16 +11,25 @@ var jslogger = (function(){
         logLevel = 0;
 
     function apply(fn, args){
-        fn.apply(null, args);
+        fn.apply(console, args);
+    }
+
+    function extractValue(){
+        var tokens = document.cookie.split(';'),
+            cookieValue = '';
+
+        tokens.forEach(function(token){
+            if(token.match(/^logLevel/) !== null){
+                cookieValue = token.split(',')[0].split('=')[1];
+            }
+        });
+
+        return cookieValue;
     }
 
     function getLogLevel(){
-        var storedLevel = decodeURIComponent(
-                    document.cookie.replace(
-                        new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent('logLevel')
-                            .replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
-
-        return (!!storedLevel) ? logLevel : parseInt(storedLevel, 10);
+        var storedLevel = extractValue();
+        return (!!storedLevel) ? parseInt(storedLevel, 10) : logLevel;
     }
 
     function setLogLevel(level){
