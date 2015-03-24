@@ -13,12 +13,11 @@ module.exports = function(grunt){
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
-                sourceMap: true,
-                sourceMapName: 'scripts/min/<%= pkg.name %>.map'
+                sourceMap: false
             },
             dist: {
                 files: {
-                    'scripts/min/<%= pkg.name %>.min.js': ['./scripts/src/**/*.js']
+                    'dist/<%= pkg.name %>.min.js': ['./scripts/src/**/*.js']
                 }
             }
         },
