@@ -2,11 +2,11 @@ var jslogger = (function(){
     'use strict';
 
     var logLevels = {
-            log: 2,
+            error: 0,
             info: 2,
-            warn: 1,
-            trace: 1,
-            error: 0
+            log: 2,
+            trace: 3,
+            warn: 1
         },
         logLevel = 0;
 

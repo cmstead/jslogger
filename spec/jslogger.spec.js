@@ -203,7 +203,7 @@
             var trace;
 
             beforeEach(function(){
-                jslogger.setLogLevel(1);
+                jslogger.setLogLevel(3);
                 trace = console.trace;
             });
 
