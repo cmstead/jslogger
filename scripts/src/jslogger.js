@@ -19,7 +19,7 @@ var jslogger = (function(){
             cookieValue = '';
 
         tokens.forEach(function(token){
-            if(token.match(/^logLevel/) !== null){
+            if(token.match(/logLevel/) !== null){
                 cookieValue = token.split(',')[0].split('=')[1];
             }
         });
