@@ -1,7 +1,8 @@
 .gitignore
 .idea
+.DS_Store
+
 Gruntfile.js
 spec/
 scripts/
-doc/
 example/
