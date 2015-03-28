@@ -1,7 +1,7 @@
 {
   "name": "JSLogger",
   "description": "Logger utility to limit log output in a production environment.",
-  "repository": "https://github.com/cmstead/jslogger.git",
+  "repository": "https://github.com/cmstead/jslogger",
   "version": "1.2.0",
   "devDependencies": {
     "grunt": "^0.4.5",
