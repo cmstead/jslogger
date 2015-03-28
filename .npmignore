@@ -1,4 +1,5 @@
 .gitignore
+.idea
 Gruntfile.js
 spec/
 scripts/
