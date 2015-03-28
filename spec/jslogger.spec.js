@@ -54,6 +54,54 @@
             });
         });
 
+        describe('debug', function(){
+
+            var log;
+
+            beforeEach(function(){
+                jslogger.setLogLevel(3);
+                log = console.log;
+            });
+
+            afterEach(function(){
+                console.log = log;
+            });
+
+            it('should call console.log', function(){
+                console.log = jasmine.createSpy('log');
+
+                jslogger.debug();
+
+                expect(console.log).toHaveBeenCalled();
+            });
+
+            it('should call console.error with a single argument', function(){
+                console.log = jasmine.createSpy('log');
+
+                jslogger.debug('test');
+
+                expect(console.log).toHaveBeenCalledWith('test');
+            });
+
+            it('should call console.error with a single argument', function(){
+                console.log = jasmine.createSpy('log');
+
+                jslogger.debug('test1', 'test2', 'test3', 'test4');
+
+                expect(console.log).toHaveBeenCalledWith('test1', 'test2', 'test3', 'test4');
+            });
+
+            it('should not throw an error if console.error does not exist', function(){
+                console.log = undefined;
+
+                function debugFn(){
+                    jslogger.debug();
+                }
+
+                expect(debugFn).not.toThrow();
+            });
+        });
+
         describe('error', function(){
 
             var error;
