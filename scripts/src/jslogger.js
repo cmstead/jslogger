@@ -7,7 +7,7 @@ var jslogger = (function(){
             error: 0,
             info: 2,
             log: 2,
-            trace: 3,
+            trace: 4,
             warn: 1
         },
 

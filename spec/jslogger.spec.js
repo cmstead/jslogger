@@ -251,7 +251,7 @@
             var trace;
 
             beforeEach(function(){
-                jslogger.setLogLevel(3);
+                jslogger.setLogLevel(4);
                 trace = console.trace;
             });
 
