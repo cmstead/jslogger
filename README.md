@@ -36,8 +36,17 @@ Each log level outputs everything from a lower log level and also includes liste
 
 ##Roadmap
 
+*Upcoming functions*
+- assert()
+- count()
+- dir()
+- group([<boolean> collapsed, ], <array>[jslogger function, arguments])
+- table()
+- timerStart() -> time()
+- timerEnd() -> timeEnd()
+
+*Other functionality*
 - Provide a configuration abstraction to allow for logging in node applications
-- Add expanded console support for modern API support (grouping and other modern functions)
 
 ##Update log
 
