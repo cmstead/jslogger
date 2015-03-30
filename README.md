@@ -36,6 +36,16 @@ Each log level outputs everything from a lower log level and also includes liste
 
 ##Roadmap
 
+*V2.0 -- Anticipated breaking changes and API updates*
+
+- Create default grouped logging including no logging (jslogger.SILENT, jslogger.ERROR, jslogger.WARN, jslogger.LOG, jslogger.DEBUG)
+- Create individual additive log levels for each logging state
+- Numeric log levels will be removed
+- Selective logging will be manageable by a comma-separated string (eg. 'info, log, error, dir')
+- Logging interceptors will be added so persisted logs can be implemented
+
+*V1.x -- Upcoming work*
+
 *Upcoming functions*
 - assert()
 - count()
